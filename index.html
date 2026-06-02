@@ -2,13 +2,21 @@
 <html lang="ru" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Атмосфера — премиальная организация свадеб, юбилеев и частных событий в Тюмени</title>
-  <meta name="description" content="Атмосфера — премиальная организация свадеб, юбилеев и частных событий в Тюмени. Авторские свадьбы под ключ: концепция, эстетика, координация и безупречная реализация без хаоса и стресса." />
+  <meta name="description" content="Атмосфера — премиальное event-агентство в Тюмени. Организация свадеб, юбилеев, корпоративов и private events под ключ: концепция, эстетика, координация и безупречная реализация без хаоса и стресса." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://atmosphere-events.ru" />
+  <meta property="og:title" content="Атмосфера — премиальная организация свадеб, юбилеев и частных событий в Тюмени" />
+  <meta property="og:description" content="Авторские свадьбы, юбилеи, корпоративы под ключ. Спокойная организация, эстетика и полное погружение в атмосферу праздника." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630?text=Атмосфера+Event+Агентство" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* базовые переменные (без изменений) */
     :root {
       --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
       --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
@@ -16,20 +24,10 @@
       --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
       --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
       --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
-      --space-1: 0.25rem;
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
       --space-4: 1rem;
-      --space-5: 1.25rem;
       --space-6: 1.5rem;
       --space-8: 2rem;
       --space-10: 2.5rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-20: 5rem;
-      --space-24: 6rem;
-      --radius-sm: 0.375rem;
-      --radius-md: 0.75rem;
       --radius-lg: 1.25rem;
       --radius-xl: 1.75rem;
       --radius-full: 999px;
@@ -39,217 +37,43 @@
       --shadow-sm: 0 8px 24px rgba(39, 33, 24, 0.06);
       --shadow-md: 0 20px 60px rgba(39, 33, 24, 0.08);
       --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --header-height: 80px;
     }
     :root, [data-theme="light"] {
       --color-bg: #f7f4ef;
       --color-surface: #fcfaf7;
-      --color-surface-2: #f1ece4;
       --color-border: rgba(40, 37, 29, 0.12);
       --color-text: #2c261f;
       --color-muted: #716a62;
-      --color-faint: #9d968d;
       --color-primary: #8f7a5a;
       --color-primary-dark: #6f5d44;
       --color-inverse: #fffaf4;
-      --hero-glow: radial-gradient(circle at top right, rgba(183, 162, 129, 0.24), transparent 40%);
+      --modal-bg: rgba(0,0,0,0.5);
     }
     [data-theme="dark"] {
       --color-bg: #191714;
       --color-surface: #211f1c;
-      --color-surface-2: #2a2724;
       --color-border: rgba(255, 245, 232, 0.12);
       --color-text: #efe9df;
       --color-muted: #b8afa4;
-      --color-faint: #8f877d;
       --color-primary: #c9b18a;
       --color-primary-dark: #e2caa2;
       --color-inverse: #1a1713;
-      --hero-glow: radial-gradient(circle at top right, rgba(201, 177, 138, 0.14), transparent 40%);
       --shadow-sm: 0 8px 24px rgba(0,0,0,.22);
       --shadow-md: 0 20px 60px rgba(0,0,0,.28);
+      --modal-bg: rgba(0,0,0,0.7);
     }
-
-    :root {
-      --surface-glass: rgba(255,255,255,.58);
-      --surface-glass-strong: rgba(255,255,255,.72);
-      --grain-opacity: .075;
-    }
-    [data-theme="dark"] {
-      --surface-glass: rgba(33,31,28,.6);
-      --surface-glass-strong: rgba(33,31,28,.78);
-      --grain-opacity: .045;
-    }
-    body::before {
-      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1;
-      background-image:
-        radial-gradient(circle at 15% 20%, rgba(201,177,138,.12), transparent 22%),
-        radial-gradient(circle at 82% 12%, rgba(143,122,90,.08), transparent 18%),
-        radial-gradient(circle at 50% 80%, rgba(201,177,138,.07), transparent 20%);
-    }
-    body::after {
-      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -1; opacity: var(--grain-opacity);
-      background-image:
-        linear-gradient(120deg, rgba(255,255,255,.45) 0%, transparent 45%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.05' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
-      mix-blend-mode: soft-light;
-    }
-    .hero::after {
-      content: ""; position: absolute; inset: auto auto 0 8%; width: 240px; height: 240px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,.38), transparent 68%); filter: blur(14px); pointer-events: none;
-    }
-    .hero-copy {
-      position: relative;
-    }
-    .hero-copy::before {
-      content: ""; position: absolute; inset: -1.5rem auto auto -1rem; width: 72px; height: 1px; background: color-mix(in srgb, var(--color-primary) 55%, transparent);
-      box-shadow: 18px 10px 0 0 color-mix(in srgb, var(--color-primary) 18%, transparent);
-    }
-    .hero-card {
-      overflow: hidden;
-    }
-    .hero-card::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(145deg, rgba(255,255,255,.28), transparent 32%, rgba(143,122,90,.06) 72%, transparent);
-    }
-    .hero-visual::after {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(180deg, transparent 48%, rgba(44,38,31,.08));
-    }
-    .photo-main, .photo-small, .portfolio-photo {
-      isolation: isolate;
-    }
-    .photo-main::after, .photo-small::after {
-      content: ""; position: absolute; inset: auto 0 0; height: 40%;
-      background: linear-gradient(180deg, transparent, rgba(35,28,20,.18));
-      z-index: 0;
-    }
-    .photo-caption {
-      background: var(--surface-glass-strong);
-      box-shadow: 0 16px 40px rgba(32,25,19,.08);
-    }
-    .proof-card, .mini-card, .card, .soft-card, .quote-box, .faq details, .contact-card {
-      position: relative; overflow: hidden;
-    }
-    .proof-card::before, .mini-card::before, .card::before, .soft-card::before, .quote-box::before, .faq details::before, .contact-card::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(160deg, rgba(255,255,255,.18), transparent 26%, rgba(143,122,90,.04) 78%, transparent);
-    }
-    .card, .soft-card, .proof-card, .contact-card, .testimonial {
-      transition: transform .35s cubic-bezier(0.16,1,0.3,1), box-shadow .35s cubic-bezier(0.16,1,0.3,1), border-color .35s ease;
-    }
-    .card:hover, .soft-card:hover, .proof-card:hover, .contact-card:hover, .testimonial:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 26px 60px rgba(39,33,24,.11);
-      border-color: color-mix(in srgb, var(--color-primary) 22%, var(--color-border));
-    }
-    .service-stack {
-      display: grid; gap: .8rem; margin-top: 1rem;
-    }
-    .service-line {
-      display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem .95rem;
-      border: 1px solid color-mix(in srgb, var(--color-primary) 14%, var(--color-border)); border-radius: var(--radius-md);
-      background: color-mix(in srgb, var(--color-surface) 82%, white);
-      font-size: var(--text-sm); color: var(--color-text);
-    }
-    .service-line span:last-child {
-      color: var(--color-muted); font-size: var(--text-xs); text-transform: uppercase; letter-spacing: .08em;
-    }
-    .portfolio-shell {
-      position: relative;
-    }
-    .portfolio-shell::before {
-      content: ""; position: absolute; inset: -2rem 8% auto auto; width: 180px; height: 180px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,177,138,.18), transparent 70%); filter: blur(10px); pointer-events: none;
-    }
-    .portfolio-item {
-      padding: .6rem; border-radius: calc(var(--radius-xl) + .4rem); background: color-mix(in srgb, var(--color-surface) 72%, white);
-      border: 1px solid color-mix(in srgb, var(--color-primary) 10%, var(--color-border)); box-shadow: var(--shadow-sm);
-      transition: transform .38s cubic-bezier(0.16,1,0.3,1), box-shadow .38s ease;
-    }
-    .portfolio-item:hover {
-      transform: translateY(-5px); box-shadow: 0 30px 70px rgba(39,33,24,.12);
-    }
-    .portfolio-photo {
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.24);
-    }
-    .portfolio-photo::before {
-      background:
-        radial-gradient(circle at 18% 18%, rgba(255,255,255,.58), transparent 18%),
-        linear-gradient(135deg, rgba(255,255,255,.08), rgba(110,86,62,.14)),
-        linear-gradient(180deg, rgba(84,58,38,.03), rgba(84,58,38,.22));
-    }
-    .portfolio-copy {
-      padding: .2rem .2rem .35rem;
-    }
-    .process-card {
-      position: relative;
-    }
-    .steps {
-      position: relative;
-    }
-    .steps::before {
-      content: ""; position: absolute; left: 20px; top: 12px; bottom: 12px; width: 1px;
-      background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 26%, transparent), transparent 100%);
-    }
-    .step {
-      position: relative;
-    }
-    .step:hover .step-num {
-      transform: scale(1.05);
-      box-shadow: 0 12px 28px rgba(143,122,90,.18);
-    }
-    .step-num {
-      transition: transform .3s ease, box-shadow .3s ease;
-      position: relative; z-index: 1;
-      background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 16%, white), color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)));
-    }
-    .testimonial {
-      background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 86%, white), var(--color-surface));
-    }
-    .testimonial p {
-      color: var(--color-text);
-    }
-    .faq details {
-      transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
-    }
-    .faq details[open] {
-      border-color: color-mix(in srgb, var(--color-primary) 24%, var(--color-border));
-      box-shadow: 0 18px 40px rgba(39,33,24,.07);
-      transform: translateY(-1px);
-    }
-    .cta-wrap {
-      position: relative; overflow: hidden;
-    }
-    .cta-wrap::before {
-      content: ""; position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(circle at 85% 12%, rgba(201,177,138,.22), transparent 20%),
-        linear-gradient(135deg, rgba(255,255,255,.12), transparent 24%, rgba(143,122,90,.05) 72%, transparent);
-    }
-    .contact-card {
-      min-height: 100%;
-    }
-    .footer {
-      position: relative;
-    }
-    .footer::before {
-      content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--color-primary) 22%, var(--color-border)), transparent);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: var(--font-body);
       background: var(--color-bg);
       color: var(--color-text);
-      line-height: 1.6;
+      font-family: var(--font-body);
+      line-height: 1.5;
+      transition: background 0.2s, color 0.2s;
     }
+    body.menu-open { overflow: hidden; }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button, input, select, textarea { font: inherit; }
     .container { width: min(calc(100% - 2rem), var(--content)); margin: 0 auto; }
     .section { padding: clamp(4rem, 8vw, 7rem) 0; }
     .section-head { max-width: 720px; margin-bottom: var(--space-10); }
@@ -257,814 +81,540 @@
       display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .8rem;
       border: 1px solid var(--color-border); border-radius: var(--radius-full); font-size: var(--text-xs);
       text-transform: uppercase; letter-spacing: .12em; color: var(--color-muted); background: rgba(255,255,255,.35);
+      margin-bottom: 1rem;
     }
-    h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; margin: 0 0 1rem; font-weight: 600; }
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; margin: 0 0 1rem; font-weight: 600; }
     h1 { font-size: clamp(3rem, 6vw, 5.8rem); max-width: 11ch; }
     h2 { font-size: clamp(2.1rem, 4vw, 3.6rem); }
     h3 { font-size: clamp(1.5rem, 2.5vw, 2rem); }
     p { margin: 0 0 1rem; color: var(--color-muted); font-size: var(--text-base); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px;
+      padding: .9rem 1.25rem; border-radius: var(--radius-full); border: 1px solid transparent; font-size: var(--text-sm);
+      font-weight: 600; transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary { background: var(--color-primary); color: var(--color-inverse); box-shadow: var(--shadow-sm); }
+    .btn-primary:hover { background: var(--color-primary-dark); transform: translateY(-2px); }
+    .btn-secondary { border-color: var(--color-border); background: transparent; }
+    .btn-secondary:hover { background: var(--color-surface); transform: translateY(-2px); }
+    .btn:active { transform: scale(0.97); }
+    .grid-2, .grid-3 { display: grid; gap: 1.5rem; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .card {
+      background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl);
+      padding: clamp(1.25rem, 2.2vw, 1.8rem); box-shadow: var(--shadow-sm);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .chip {
+      display: inline-flex; padding: 0.3rem 0.8rem; border-radius: var(--radius-full);
+      background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+      font-size: var(--text-xs); border: 1px solid color-mix(in srgb, var(--color-primary) 18%, var(--color-border));
+    }
+    /* header */
     .header {
       position: sticky; top: 0; z-index: 40; backdrop-filter: blur(18px);
       background: color-mix(in srgb, var(--color-bg) 78%, transparent);
       border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
     }
     .header.scrolled { border-color: var(--color-border); }
     .nav {
-      min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+      min-height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
     }
-    .brand { display: inline-flex; align-items: center; gap: .85rem; font-weight: 700; letter-spacing: .02em; }
+    .brand { display: flex; align-items: center; gap: 0.85rem; font-weight: 700; }
     .brand svg { width: 38px; height: 38px; color: var(--color-primary); }
-    .brand-name { display: flex; flex-direction: column; gap: .1rem; }
     .brand-name strong { font-size: 1.05rem; }
     .brand-name span { font-size: .75rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: .14em; }
-    .nav-links { display: flex; align-items: center; gap: 1.1rem; font-size: var(--text-sm); color: var(--color-muted); }
+    .nav-links { display: flex; gap: 1.5rem; font-size: var(--text-sm); }
     .nav-links a:hover { color: var(--color-text); }
-    .nav-right { display: flex; align-items: center; gap: .75rem; }
     .theme-toggle, .burger {
       width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--color-border); background: var(--color-surface);
-      display: inline-grid; place-items: center; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; cursor: pointer;
     }
     .burger { display: none; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px;
-      padding: .9rem 1.25rem; border-radius: var(--radius-full); border: 1px solid transparent; font-size: var(--text-sm);
-      font-weight: 600; transition: transform var(--transition), background var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--color-primary); color: var(--color-inverse); box-shadow: var(--shadow-sm); }
-    .btn-primary:hover { background: var(--color-primary-dark); }
-    .btn-secondary { border-color: var(--color-border); background: transparent; }
-    .btn-secondary:hover { background: var(--color-surface); }
-    .hero {
-      padding: clamp(3rem, 6vw, 5rem) 0 clamp(4rem, 7vw, 6rem);
-      position: relative;
-      overflow: clip;
-    }
-    .hero::before {
-      content: ""; position: absolute; inset: 0; background: var(--hero-glow); pointer-events: none;
-    }
-    .hero-grid {
-      display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr); align-items: center; gap: clamp(2rem, 5vw, 4rem);
-    }
-    .hero-copy p.lead { font-size: clamp(1.05rem, 1rem + .6vw, 1.35rem); max-width: 42rem; color: var(--color-text); }
-    .hero-actions, .contact-row { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: var(--space-6); }
-    .contact-pill {
-      display: inline-flex; align-items: center; gap: .55rem; border: 1px solid var(--color-border); border-radius: var(--radius-full);
-      padding: .7rem 1rem; background: color-mix(in srgb, var(--color-surface) 80%, transparent); color: var(--color-muted); font-size: var(--text-sm);
-    }
-    .hero-card {
-      background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 88%, white) 0%, var(--color-surface) 100%);
-      border: 1px solid var(--color-border); border-radius: calc(var(--radius-xl) + .5rem); padding: clamp(1.2rem, 2vw, 1.6rem);
-      box-shadow: var(--shadow-md); position: relative;
-    }
-    .hero-card::after {
-      content: ""; position: absolute; inset: auto 1.25rem 1.25rem auto; width: 110px; height: 110px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,177,138,.32), transparent 65%); filter: blur(10px);
-    }
-    .hero-visual {
-      min-height: 560px; border-radius: calc(var(--radius-xl) + .25rem); overflow: hidden;
-      background: linear-gradient(160deg, rgba(255,255,255,.72), rgba(233,224,211,.5)); position: relative;
-      display: grid; grid-template-rows: 1.2fr auto auto; gap: 1rem;
-      padding: 1.2rem;
-    }
-    .photo-main, .photo-small {
-      border-radius: var(--radius-lg); position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.35);
-      background: linear-gradient(145deg, #e7ddd0, #f8f1e8);
-    }
-    .photo-main::before, .photo-small::before {
-      content: ""; position: absolute; inset: 0;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.15), rgba(125,101,74,.06)),
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.75), transparent 28%),
-        linear-gradient(120deg, #d6c7b3 0%, #f5ede4 45%, #dccab6 100%);
-    }
-    .photo-main { min-height: 320px; }
-    .hero-bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .photo-caption {
-      position: absolute; left: 1rem; bottom: 1rem; right: 1rem; padding: .9rem 1rem;
-      background: rgba(255,255,255,.72); backdrop-filter: blur(14px); border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,.55);
-    }
-    .photo-caption strong { display: block; font-size: 1rem; margin-bottom: .15rem; }
-    .hero-note {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: .85rem; position: relative; z-index: 1;
-    }
-    .mini-card {
-      background: rgba(255,255,255,.65); border: 1px solid rgba(255,255,255,.55); backdrop-filter: blur(14px);
-      border-radius: var(--radius-md); padding: .95rem;
-    }
-    .mini-card strong { display: block; font-size: 1.1rem; color: var(--color-text); }
-    .mini-card span { font-size: var(--text-xs); color: var(--color-muted); }
-    .grid-2, .grid-3 { display: grid; gap: 1.25rem; }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .card {
-      background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl);
-      padding: clamp(1.25rem, 2.2vw, 1.6rem); box-shadow: var(--shadow-sm);
-    }
-    .card p:last-child { margin-bottom: 0; }
-    .soft-card {
-      background: linear-gradient(180deg, color-mix(in srgb, var(--color-surface) 65%, white), var(--color-surface));
-      border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.4rem;
-    }
-    .service-meta, .portfolio-meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
-    .chip {
-      display: inline-flex; align-items: center; gap: .35rem; border-radius: var(--radius-full); padding: .45rem .75rem;
-      background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); color: var(--color-text); font-size: var(--text-xs);
-      border: 1px solid color-mix(in srgb, var(--color-primary) 18%, var(--color-border));
-    }
-    .about-layout {
-      display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); gap: 1.4rem;
-    }
-    .quote-box {
-      background: linear-gradient(140deg, color-mix(in srgb, var(--color-primary) 11%, var(--color-surface)), var(--color-surface));
-      border-radius: calc(var(--radius-xl) + .25rem); padding: 1.5rem; border: 1px solid var(--color-border);
-    }
-    .steps { display: grid; gap: 1rem; }
-    .step {
-      display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start;
-      padding: 1.15rem 0; border-top: 1px solid var(--color-border);
-    }
-    .step:first-child { border-top: 0; padding-top: 0; }
-    .step-num {
-      width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
-      background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface)); color: var(--color-primary-dark); font-weight: 700;
-      border: 1px solid color-mix(in srgb, var(--color-primary) 20%, var(--color-border));
-    }
-    .portfolio-item { display: grid; gap: 1rem; }
-    .portfolio-photo {
-      aspect-ratio: 4 / 3; border-radius: calc(var(--radius-lg) + .2rem); overflow: hidden; position: relative;
-      background: linear-gradient(120deg, #d3c4b4, #f3ebe0 55%, #c9b7a2);
-    }
-    .portfolio-photo::before {
-      content: ""; position: absolute; inset: 0; background:
-      radial-gradient(circle at 18% 18%, rgba(255,255,255,.55), transparent 18%),
-      linear-gradient(180deg, rgba(84,58,38,.03), rgba(84,58,38,.18));
-    }
-    .portfolio-photo::after {
-      content: attr(data-label); position: absolute; left: 1rem; bottom: 1rem; padding: .4rem .7rem; border-radius: var(--radius-full);
-      background: rgba(255,255,255,.78); border: 1px solid rgba(255,255,255,.65); font-size: var(--text-xs); letter-spacing: .08em; text-transform: uppercase;
-    }
-    .testimonials { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
-    .testimonial footer { margin-top: 1rem; color: var(--color-text); font-weight: 600; }
-    .faq { display: grid; gap: .8rem; }
-    .faq details {
-      background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
-      padding: 1rem 1.1rem;
-    }
-    .faq summary {
-      cursor: pointer; list-style: none; font-weight: 600; color: var(--color-text); display: flex; justify-content: space-between; gap: 1rem;
-    }
-    .faq summary::-webkit-details-marker { display: none; }
-    .faq details p { margin-top: .75rem; margin-bottom: 0; }
-    .cta-wrap {
-      background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 12%, var(--color-surface)), var(--color-surface));
-      border: 1px solid var(--color-border); border-radius: calc(var(--radius-xl) + .5rem); padding: clamp(1.4rem, 3vw, 2rem);
-      display: grid; grid-template-columns: minmax(0, .9fr) minmax(320px, 1.1fr); gap: 1.5rem; align-items: start;
-    }
-    form { display: grid; gap: .9rem; }
-    .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
-    label { display: grid; gap: .45rem; font-size: var(--text-sm); color: var(--color-text); }
-    input, select, textarea {
-      width: 100%; border-radius: .95rem; border: 1px solid var(--color-border); background: rgba(255,255,255,.66);
-      padding: .95rem 1rem; color: var(--color-text); outline: none;
-    }
-    textarea { min-height: 120px; resize: vertical; }
-    input:focus, select:focus, textarea:focus { border-color: color-mix(in srgb, var(--color-primary) 45%, var(--color-border)); box-shadow: 0 0 0 4px rgba(143,122,90,.12); }
-    .contact-list { display: grid; gap: .9rem; }
-    .contact-card { display: flex; gap: 1rem; align-items: center; padding: 1rem; border-radius: var(--radius-lg); background: var(--color-surface); border: 1px solid var(--color-border); }
-    .contact-icon { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); }
-    .footer { padding: 2rem 0 3rem; border-top: 1px solid var(--color-border); }
-    .footer-row { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; color: var(--color-muted); font-size: var(--text-sm); }
     .mobile-panel {
       display: none; position: fixed; inset: 80px 1rem auto; background: var(--color-surface); border: 1px solid var(--color-border);
-      border-radius: 1.25rem; box-shadow: var(--shadow-md); padding: 1rem; z-index: 45;
+      border-radius: 1.25rem; box-shadow: var(--shadow-md); padding: 1.5rem; z-index: 45; flex-direction: column; gap: 1rem;
+      transition: opacity 0.25s;
     }
-    .mobile-panel.open { display: grid; gap: .8rem; }
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
-      clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+    .mobile-panel.open { display: flex; }
+    /* hero */
+    .hero { padding: clamp(3rem, 6vw, 5rem) 0; position: relative; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 0.9fr; gap: 2.5rem; align-items: center; }
+    .hero-card {
+      background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl);
+      padding: 1.2rem; box-shadow: var(--shadow-md);
     }
-
-    .hero-proof {
-      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; margin-top: var(--space-8);
+    .hero-visual { display: flex; flex-direction: column; gap: 1rem; }
+    .photo-placeholder {
+      background: linear-gradient(145deg, #e7ddd0, #f8f1e8);
+      border-radius: var(--radius-lg); min-height: 220px; display: flex; align-items: center; justify-content: center;
+      color: var(--color-muted); font-size: var(--text-sm); border: 1px solid rgba(255,255,255,0.4);
+      font-family: var(--font-display);
     }
-    .proof-card {
-      padding: 1rem; border-radius: var(--radius-lg); background: color-mix(in srgb, var(--color-surface) 86%, white);
-      border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);
+    .photo-caption {
+      background: color-mix(in srgb, var(--color-surface) 85%, transparent);
+      backdrop-filter: blur(8px); border-radius: var(--radius-md);
+      padding: 0.8rem; margin-top: 0.5rem;
     }
-    .proof-card strong { display:block; margin-bottom: .35rem; color: var(--color-text); font-size: var(--text-sm); }
-    .proof-card span { color: var(--color-muted); font-size: var(--text-sm); }
-    .portfolio-item.featured {
-      grid-column: span 2;
+    .hero-features { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
+    .hero-feature {
+      background: color-mix(in srgb, var(--color-surface) 86%, white);
+      border-radius: var(--radius-full); padding: 0.5rem 1rem; font-size: var(--text-sm);
+      border: 1px solid var(--color-border);
     }
-    .portfolio-photo.tall { aspect-ratio: 16 / 10; }
-    .sticky-cta {
-      position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 50; display: none;
-      padding: .8rem .95rem; border-radius: var(--radius-full); background: color-mix(in srgb, var(--color-surface) 92%, white);
-      border: 1px solid var(--color-border); box-shadow: var(--shadow-md); backdrop-filter: blur(18px); align-items: center; justify-content: space-between; gap: .8rem;
+    /* stats */
+    .stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1rem; margin: 2rem 0; }
+    .stat-card { text-align: center; padding: 1rem; background: var(--color-surface); border-radius: var(--radius-lg); border: 1px solid var(--color-border); }
+    .stat-number { font-size: 2rem; font-weight: 700; font-family: var(--font-display); color: var(--color-primary); }
+    /* portfolio */
+    .portfolio-item {
+      background: var(--color-surface); border-radius: var(--radius-xl); overflow: hidden;
+      border: 1px solid var(--color-border); transition: transform 0.25s;
     }
-    .sticky-cta span { font-size: var(--text-sm); color: var(--color-text); }
-
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .portfolio-item:hover { transform: translateY(-5px); }
+    .portfolio-photo {
+      background: linear-gradient(120deg, #d3c4b4, #f3ebe0); aspect-ratio: 4/3;
+      display: flex; align-items: center; justify-content: center; color: var(--color-muted);
+    }
+    /* FAQ */
+    .faq details {
+      background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+      padding: 1rem 1.2rem; margin-bottom: 0.8rem;
+    }
+    .faq summary { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; }
+    /* form */
+    .form-card { background: var(--color-surface); border-radius: var(--radius-xl); padding: 1.8rem; border: 1px solid var(--color-border); }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    label { display: block; margin-bottom: 0.3rem; font-size: var(--text-sm); font-weight: 500; }
+    input, select, textarea {
+      width: 100%; border-radius: 1rem; border: 1px solid var(--color-border); background: rgba(255,255,255,0.5);
+      padding: 0.8rem 1rem; color: var(--color-text); outline: none; transition: border 0.2s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(143,122,90,0.2); }
+    .field-error { border-color: #e5484d !important; }
+    .error-msg { font-size: 0.75rem; color: #e5484d; margin-top: 0.25rem; display: block; }
+    .checkbox { display: flex; align-items: center; gap: 0.6rem; margin: 1rem 0; }
+    .checkbox input { width: auto; transform: scale(1.1); }
+    /* spinner */
+    .spinner {
+      display: inline-block; width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white; border-radius: 50%; animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+    /* кнопка наверх */
+    .scroll-top {
+      position: fixed; bottom: 24px; right: 24px; width: 48px; height: 48px; border-radius: 50%;
+      background: var(--color-primary); color: var(--color-inverse); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; font-size: 24px;
+      opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; z-index: 45;
+      box-shadow: var(--shadow-md);
+    }
+    .scroll-top.visible { opacity: 1; visibility: visible; }
+    .scroll-top:hover { transform: translateY(-3px); background: var(--color-primary-dark); }
+    /* модалка */
+    .modal {
+      display: none; position: fixed; inset: 0; background: var(--modal-bg); backdrop-filter: blur(4px);
+      z-index: 100; align-items: center; justify-content: center;
+    }
+    .modal.active { display: flex; }
+    .modal-content {
+      background: var(--color-surface); max-width: 500px; width: 90%; border-radius: var(--radius-xl);
+      padding: 2rem; border: 1px solid var(--color-border); position: relative; max-height: 80vh; overflow-y: auto;
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;
+      color: var(--color-muted);
+    }
+    /* footer */
+    .footer { border-top: 1px solid var(--color-border); padding: 2rem 0; margin-top: 2rem; }
+    .footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .sticky-cta { position: fixed; bottom: 1rem; left: 1rem; right: 1rem; background: var(--color-surface); backdrop-filter: blur(20px); border: 1px solid var(--color-border); border-radius: var(--radius-full); padding: 0.8rem 1.2rem; display: none; align-items: center; justify-content: space-between; z-index: 50; }
     @media (max-width: 980px) {
-      .hero-grid, .about-layout, .cta-wrap, .grid-3, .testimonials, .hero-proof { grid-template-columns: 1fr; }
-      .grid-2, .hero-bottom-grid, .hero-note, .form-grid { grid-template-columns: 1fr; }
+      .hero-grid, .grid-2, .grid-3, .stats-grid { grid-template-columns: 1fr; }
       .nav-links, .nav-right .contact-link { display: none; }
-      .burger { display: inline-grid; }
-      h1 { max-width: 13ch; }
-      .hero-visual { min-height: auto; }
-      .portfolio-item.featured { grid-column: span 1; }
+      .burger { display: inline-flex; }
+      .sticky-cta { display: flex; }
+      body { padding-bottom: 80px; }
     }
     @media (max-width: 640px) {
-      .container { width: min(calc(100% - 1.1rem), var(--content)); }
-      .nav { min-height: 72px; }
-      .section { padding: 3.75rem 0; }
-      .btn { width: 100%; }
-      .hero-actions .btn { width: auto; flex: 1 1 100%; }
-      .contact-row { flex-direction: column; align-items: stretch; }
-      .sticky-cta { display: flex; }
-      body { padding-bottom: 5.5rem; }
+      .form-grid { grid-template-columns: 1fr; }
+      .hero-features { flex-direction: column; }
+      .scroll-top { bottom: 80px; }
     }
-  
-    .metric{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.32);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-    select{width:100%;padding:16px 18px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.55);color:var(--ink);outline:none}
-    select:focus{border-color:rgba(47,92,87,.55);box-shadow:0 0 0 4px rgba(47,92,87,.12)}
-    .mobile-cta{position:fixed;left:16px;right:16px;bottom:16px;z-index:40;display:none;align-items:center;justify-content:center;padding:15px 18px;border-radius:999px;background:linear-gradient(135deg,#2f5c57,#5d8d85);color:#fff;text-decoration:none;font-weight:700;box-shadow:0 18px 40px rgba(28,44,42,.24)}
-    @media (max-width: 820px){.mobile-cta{display:flex}}
-
-
-    .trust-inline{display:flex;flex-wrap:wrap;gap:10px 12px;margin:22px 0 24px}
-    .trust-inline span{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.28);font-size:13px;color:var(--muted)}
-    .after-request{margin-top:28px;padding-top:8px}
-    .after-request h3{font-size:clamp(1.2rem,1rem + .8vw,1.7rem);margin-bottom:18px}
-
-
-    .hero-trust{display:flex;flex-wrap:wrap;gap:10px 12px;margin-top:18px}
-    .hero-trust span{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.54);border:1px solid rgba(255,255,255,.28);font-size:13px;color:var(--muted)}
-    .scope-list{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
-    .scope-list li{padding-left:18px;position:relative;color:var(--muted)}
-    .scope-list li::before{content:'•';position:absolute;left:0;top:0;color:var(--accent)}
-    .form-step-indicator{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-    .form-step-indicator span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.28);font-size:13px;color:var(--muted)}
-    .form-step-indicator .is-active{background:rgba(47,92,87,.12);border-color:rgba(47,92,87,.26);color:var(--ink)}
-    .form-step{display:none}
-    .form-step.is-active{display:block}
-    .form-actions-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-
-</style>
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Атмосфера Premium Event Agency",
+    "telephone": "+79292692517",
+    "address": { "@type": "PostalAddress", "addressLocality": "Тюмень", "addressCountry": "RU" },
+    "priceRange": "₽₽₽",
+    "areaServed": "Тюмень и Тюменская область"
+  }
+  </script>
 </head>
 <body>
-  <a class="sr-only" href="#main">Перейти к содержимому</a>
+  <a class="sr-only" href="#main">К содержимому</a>
   <header class="header" id="top">
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Атмосфера — на главную">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M32 6C34.5 17.2 40.8 24.1 52 26.5C40.8 29 34.6 35.8 32 47C29.6 35.7 23.2 28.9 12 26.5C23.2 24 29.5 17.1 32 6Z" stroke="currentColor" stroke-width="2.5"/>
-          <circle cx="32" cy="26.5" r="5.5" fill="currentColor" opacity=".16"/>
-        </svg>
-        <span class="brand-name">
-          <strong>Атмосфера</strong>
-          <span>premium event agency</span>
-        </span>
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 64 64" fill="none"><path d="M32 6C34.5 17.2 40.8 24.1 52 26.5C40.8 29 34.6 35.8 32 47C29.6 35.7 23.2 28.9 12 26.5C23.2 24 29.5 17.1 32 6Z" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="26.5" r="5.5" fill="currentColor" opacity=".16"/></svg>
+        <span class="brand-name"><strong>Атмосфера</strong><span>premium event agency</span></span>
       </a>
-      <nav class="nav-links" aria-label="Основная навигация">
-        <a href="#about">О нас</a>
-        <a href="#services">Услуги</a>
-        <a href="#portfolio">Проекты</a>
-        <a href="#process">Как работаем</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contacts">Контакты</a>
+      <nav class="nav-links">
+        <a href="#about">О нас</a><a href="#services">Услуги</a><a href="#portfolio">Проекты</a>
+        <a href="#process">Как работаем</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
       </nav>
       <div class="nav-right">
         <a class="btn btn-secondary contact-link" href="tel:89292692517">8 929 269-25-17</a>
-        <button class="theme-toggle" data-theme-toggle aria-label="Сменить тему">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-        <button class="burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        </button>
+        <button class="theme-toggle" data-theme-toggle aria-label="Сменить тему">🌙</button>
+        <button class="burger" aria-label="Меню" data-burger>☰</button>
       </div>
     </div>
     <div class="mobile-panel" data-mobile-panel>
-      <a href="#about">О нас</a>
-      <a href="#services">Услуги</a>
-      <a href="#portfolio">Проекты</a>
-      <a href="#process">Как работаем</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contacts">Контакты</a>
+      <a href="#about">О нас</a><a href="#services">Услуги</a><a href="#portfolio">Проекты</a>
+      <a href="#process">Как работаем</a><a href="#faq">FAQ</a><a href="#contacts">Контакты</a>
       <a class="btn btn-primary" href="#estimate">Обсудить событие</a>
     </div>
   </header>
 
   <main id="main">
+    <!-- hero -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <span class="eyebrow">Тюмень · свадьбы · юбилеи · private events · corporate events</span>
-          <h1>Премиальные события, в которых красота сочетается со спокойной организацией.</h1>
-          <p class="lead">Организуем свадьбы, юбилеи, private events и корпоративные события в Тюмени: от идеи и визуальной концепции до точной координации дня, чтобы вы проживали событие как его главный герой, а не как человек, который всё тащит на себе.</p>
-          <div class="hero-actions">
+          <span class="eyebrow">Тюмень · свадьбы · юбилеи · private events</span>
+          <h1>Премиальные события, где красота сочетается со спокойной организацией</h1>
+          <p class="lead">Организуем свадьбы, юбилеи, корпоративы и частные вечера: от идеи до координации дня, чтобы вы были главным героем, а не диспетчером.</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a class="btn btn-primary" href="#estimate">Обсудить событие</a>
             <a class="btn btn-secondary" href="#portfolio">Посмотреть проекты</a>
           </div>
-          <div class="contact-row">
-            <a class="contact-pill" href="tel:89292692517">Телефон: 8 929 269-25-17</a>
-            <a class="contact-pill" href="https://t.me/KetrinPeil" target="_blank" rel="noopener noreferrer">Telegram: @KetrinPeil</a>
-          </div>
-          <div class="hero-proof reveal" style="transition-delay:.16s;">
-            <div class="proof-card"><strong>Авторский подход</strong><span>Каждое событие собирается под характер клиента и формат, а не по шаблону.</span></div>
-            <div class="proof-card"><strong>Цельная организация</strong><span>Концепция, команда, тайминг и сервис работают как одна система.</span></div>
-            <div class="proof-card"><strong>Премиальный тон</strong><span>Без показной роскоши — с чувством меры, вкусом и взрослой коммуникацией для разных форматов.</span></div>
+          <div class="hero-features">
+            <span class="hero-feature">🎯 120+ мероприятий без сбоев</span>
+            <span class="hero-feature">📐 Индивидуальный дизайн-проект</span>
+            <span class="hero-feature">🤝 Прозрачная смета</span>
           </div>
         </div>
-
-        <div class="hero-card reveal" style="transition-delay:.1s;">
-          <div class="hero-visual" aria-label="Визуальный блок сайта Атмосфера">
-            <div class="photo-main">
-              <div class="photo-caption">
-                <strong>Собираем событие как цельную историю</strong>
-                <span>Концепция, площадка, команда, эстетика и контроль деталей в одной системе.</span>
-              </div>
-            </div>
-            <div class="hero-bottom-grid">
-              <div class="photo-small">
-                <div class="photo-caption">
-                  <strong>Подготовка без перегруза</strong>
-                  <span>Чёткие этапы, бережная коммуникация и понятные решения.</span>
-                </div>
-              </div>
-              <div class="photo-small">
-                <div class="photo-caption">
-                  <strong>Эстетика без показной роскоши</strong>
-                  <span>Красиво в кадре, в атмосфере и в каждом организационном решении.</span>
-                </div>
-              </div>
-            </div>
-            <div class="hero-note">
-              <div class="mini-card"><strong>Под ключ</strong><span>От первой идеи до финального акцента в частном или корпоративном событии.</span></div>
-              <div class="mini-card"><strong>Деликатный сервис</strong><span>Без хаоса, навязчивости и бесконечных переписок.</span></div>
-              <div class="mini-card"><strong>Тюмень и выезд</strong><span>Для клиентов, которым важны вкус, спокойствие и взрослый уровень сервиса.</span></div>
+        <div class="hero-card reveal">
+          <div class="hero-visual">
+            <div class="photo-placeholder" style="min-height: 280px;">✨ Свадебная церемония<br>в стиле эко-шик</div>
+            <div class="photo-caption"><strong>Цельная система организации</strong><br>Площадка, декор, свет, команда — единая картина</div>
+            <div class="grid-2" style="gap:0.8rem; margin-top:0.5rem;">
+              <div class="photo-placeholder" style="min-height: 120px;">📸 Детали</div>
+              <div class="photo-placeholder" style="min-height: 120px;">🎤 Вечер</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- статистика -->
+    <div class="container stats-grid reveal">
+      <div class="stat-card"><div class="stat-number">8+</div><div>лет безупречной работы</div></div>
+      <div class="stat-card"><div class="stat-number">120+</div><div>мероприятий под ключ</div></div>
+      <div class="stat-card"><div class="stat-number">98%</div><div>клиентов рекомендуют</div></div>
+      <div class="stat-card"><div class="stat-number">24/7</div><div>поддержка</div></div>
+    </div>
+
+    <!-- о нас -->
     <section class="section" id="about">
-      <div class="container about-layout">
+      <div class="container grid-2">
         <div class="reveal">
-          <div class="section-head">
-            <span class="eyebrow">О подходе</span>
-            <h2>Мы собираем не просто красивое событие, а день, в котором всё работает на вас.</h2>
-            <p>«Атмосфера» — премиальное event-агентство для клиентов, которым важны эстетика, точность и деликатный сервис. Свадьбы — наше флагманское направление, но мы также берём в работу юбилеи, private events и корпоративные события, собирая концепцию, команду, коммуникацию с подрядчиками и координацию дня в единую систему.</p>
-          </div>
-          <div class="grid-2">
-            <div class="soft-card">
-              <h3>Что важно для нас</h3>
-              <p>Стиль, порядок, понятный процесс и внимание к деталям. Мы не обещаем сказки и не рисуем несуществующие регалии — мы собираем событие аккуратно, честно и с хорошим вкусом.</p>
-            </div>
-            <div class="soft-card">
-              <h3>Как это ощущается для клиента</h3>
-              <p>У вас есть один понятный маршрут: идея, подготовка, подбор решений, согласование ключевых точек и спокойный день мероприятия, в котором можно быть участником, а не диспетчером.</p>
-            </div>
-          </div>
+          <span class="eyebrow">О подходе</span>
+          <h2>Собираем не просто красивое событие, а день, в котором всё работает на вас</h2>
+          <p>«Атмосфера» — премиальное event-агентство для клиентов, кому важны эстетика, точность и деликатный сервис. Свадьбы, юбилеи, корпоративы — мы создаём концепцию, подбираем команду и полностью координируем день, чтобы вы могли расслабиться и получить удовольствие.</p>
         </div>
-        <aside class="quote-box reveal" style="transition-delay:.08s;">
-          <span class="eyebrow">Подход</span>
-          <h3>Премиальность не в громких словах, а в том, как всё работает.</h3>
-          <p>Сильный event-сервис начинается с структуры: понятные решения, собранная команда, хорошая коммуникация, тактичная координация и внимание к атмосфере события.</p>
-          <div class="service-meta">
-            <span class="chip">Без хаоса</span>
-            <span class="chip">Понятный процесс</span>
-            <span class="chip">Человеческая подача</span>
-          </div>
-        </aside>
+        <div class="card reveal">
+          <h3>Премиальность не в громких словах, а в том, как всё работает</h3>
+          <p>Сильный event начинается со структуры: понятные этапы, собранная команда, тактичная координация и внимание к каждой детали.</p>
+          <div style="margin-top:1rem;"><span class="chip">Без хаоса</span><span class="chip">Понятный процесс</span><span class="chip">Человеческая подача</span></div>
+        </div>
       </div>
     </section>
 
+    <!-- услуги (сокращены повторы) -->
     <section class="section" id="services">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Услуги</span>
-          <h2>Собираем разные форматы событий, сохраняя единый уровень внимания.</h2>
-          <p>Работаем с разными форматами событий, сохраняя единый стандарт сервиса, визуальной подачи и организационной точности.</p>
-        </div>
+        <div class="section-head reveal"><span class="eyebrow">Услуги</span><h2>Работаем с разными форматами, сохраняя единый стандарт</h2></div>
         <div class="grid-2">
-          <article class="card reveal">
-            <h3>Свадьбы</h3>
-            <p>Организация свадьбы под ключ: атмосфера дня, площадка, команда, логика тайминга, координация и все мелочи, которые обычно отнимают силы у пары.</p>
-            <div class="service-meta"><span class="chip">Концепция</span><span class="chip">Команда под проект</span><span class="chip">Безупречная реализация</span></div>
-          </div>
-          </article>
-          <article class="card reveal" style="transition-delay:.05s;">
-            <h3>Юбилеи</h3>
-            <p>Семейные и статусные события с уважением к гостям, ритму вечера и общей атмосфере. Без перегруза, лишней суеты и случайных решений.</p>
-            <div class="service-meta"><span class="chip">Сценарий</span><span class="chip">Комфорт гостей</span><span class="chip">Спокойный ритм</span></div>
-          </div>
-          </article>
-          <article class="card reveal" style="transition-delay:.1s;">
-            <h3>Корпоративные события</h3>
-            <p>Собранные мероприятия для команды и бизнеса: от камерного ужина до корпоративного вечера с понятной логистикой, хорошим сервисом и взрослой подачей.</p>
-            <div class="service-meta"><span class="chip">Формат</span><span class="chip">Тайминг</span><span class="chip">Сервис</span></div>
-          </div>
-          </article>
-          <article class="card reveal" style="transition-delay:.15s;">
-            <h3>Private events</h3>
-            <p>Камерные ужины, дни рождения, закрытые события и поводы, где важны деликатная подача, эстетика и точная организация.</p>
-            <div class="service-meta"><span class="chip">Под ключ</span><span class="chip">Деликатная подача</span><span class="chip">Точная организация</span></div>
-          </article>
+          <div class="card reveal"><h3>💍 Свадьбы под ключ</h3><p>Полный цикл: концепция, площадка, декор, ведущие, фото/видео, координация. Без стресса.</p><div><span class="chip">Концепция</span><span class="chip">Бюджет</span><span class="chip">Координация</span></div></div>
+          <div class="card reveal"><h3>🎂 Юбилеи и семейные праздники</h3><p>Сценарий, ресторан, музыка, сервис. Элегантная атмосфера для вас и близких.</p><div><span class="chip">Сценарий</span><span class="chip">Комфорт</span><span class="chip">Спокойный ритм</span></div></div>
+          <div class="card reveal"><h3>🏢 Корпоративные события</h3><p>Тимбилдинги, фуршеты, вечеринки. Полное сопровождение от площадки до райдера.</p><div><span class="chip">Формат</span><span class="chip">Тайминг</span><span class="chip">Сервис</span></div></div>
+          <div class="card reveal"><h3>🍷 Private events</h3><p>Камерные ужины, дни рождения, закрытые вечера. Деликатная подача и точная организация.</p><div><span class="chip">Под ключ</span><span class="chip">Деликатная подача</span><span class="chip">Точность</span></div></div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <!-- портфолио -->
+    <section class="section" id="portfolio">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Почему выбирают нас</span>
-          <h2>Не просто красивые слова, а выгоды, которые действительно снимают нагрузку.</h2>
-        </div>
+        <div class="section-head reveal"><span class="eyebrow">Проекты</span><h2>Реальные события, которые мы организовали</h2></div>
         <div class="grid-3">
-          <article class="card reveal"><h3>Берём организацию на себя</h3><p>Вам не нужно держать в голове подрядчиков, тайминг, детали и десятки мелких задач одновременно.</p></article>
-          <article class="card reveal" style="transition-delay:.05s;"><h3>Даём понятный процесс</h3><p>По шагам понятно, что происходит сейчас, что будет дальше и какие решения нужно принять.</p></article>
-          <article class="card reveal" style="transition-delay:.1s;"><h3>Думаем о деталях заранее</h3><p>Хорошее событие — это не только визуал, но и логика того, как всё работает в реальности.</p></article>
-          <article class="card reveal" style="transition-delay:.15s;"><h3>Собираем команду под задачу</h3><p>Подрядчики, площадка, атмосфера, координация и ритм вечера должны работать как одна система.</p></article>
-          <article class="card reveal" style="transition-delay:.2s;"><h3>Сохраняем стиль без перегруза</h3><p>Нам ближе элегантная, собранная подача, а не хаотичная яркость ради эффекта.</p></article>
-          <article class="card reveal" style="transition-delay:.25s;"><h3>Помогаем прожить день спокойно</h3><p>Главная цель — чтобы вы были внутри события, а не всё время управляли им вручную.</p></article>
+          <div class="portfolio-item reveal"><div class="portfolio-photo">🌸 Свадьба в стиле бохо</div><div class="card" style="border:none; background:transparent;"><h3>Анастасия и Дмитрий</h3><p>Загородный клуб, 80 гостей, живая музыка.</p><div class="chip">Свадьба под ключ</div></div></div>
+          <div class="portfolio-item reveal"><div class="portfolio-photo">🎉 Юбилей 55 лет</div><div class="card" style="border:none; background:transparent;"><h3>Юбилей в усадьбе</h3><p>Семейный вечер с шоу-программой, 50 гостей.</p><div class="chip">Юбилей</div></div></div>
+          <div class="portfolio-item reveal"><div class="portfolio-photo">🏢 Корпоратив IT-компании</div><div class="card" style="border:none; background:transparent;"><h3>Новогодний корпоратив</h3><p>180 гостей, лазерное шоу, полная координация.</p><div class="chip">Корпоратив</div></div></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="value">
-      <div class="section-head fade-up">
-        <span class="eyebrow">Что получает клиент</span>
-        <h2>Не просто красивую картинку, а понятную организацию на каждом этапе.</h2>
-        <p>Даже до появления большого портфолио сайт должен ясно отвечать на главный вопрос клиента: за что он платит и что получает в работе с агентством.</p>
-      </div>
-      <div class="grid grid-3">
-        <article class="card fade-up">
-          <span class="metric">01</span>
-          <h3>Концепцию под формат события</h3>
-          <p>Не набор случайных подрядчиков, а целостную логику вечера: атмосфера, темп, визуальный стиль и сценарная связность.</p>
-        </article>
-        <article class="card fade-up">
-          <span class="metric">02</span>
-          <h3>Понятный процесс и координацию</h3>
-          <p>Клиент заранее понимает этапы, сроки, точки согласования и не остаётся один на один с десятками организационных вопросов.</p>
-        </article>
-        <article class="card fade-up">
-          <span class="metric">03</span>
-          <h3>Спокойствие в день мероприятия</h3>
-          <p>Команда держит тайминг, коммуникацию с площадкой и подрядчиками, чтобы вы были внутри события, а не в роли диспетчера.</p>
-        </article>
-      </div>
-    </section>
-
-<section class="section" id="portfolio">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Проекты</span>
-          <h2>Проекты, в которых важны стиль, атмосфера и точная организация.</h2>
-          <p>Каждое событие собирается под задачу клиента: формат, состав гостей, уровень сервиса и то впечатление, которое должно остаться после вечера.</p>
-        </div>
-        <div class="portfolio-shell">
-        <div class="grid-3">
-          <article class="portfolio-item featured reveal">
-            <div class="portfolio-photo" data-label="Свадьба"></div>
-            <div>
-              <h3>Камерная свадьба в тёплых оттенках</h3>
-              <p>Небольшой формат с акцентом на атмосферу, тактичный декор и комфорт для гостей.</p>
-              <div class="portfolio-meta"><span class="chip">До 35 гостей</span><span class="chip">Концепция под формат</span></div>
-            </div>
-          </article>
-          <article class="portfolio-item reveal" style="transition-delay:.05s;">
-            <div class="portfolio-photo" data-label="Юбилей"></div>
-            <div>
-              <h3>Юбилейный вечер для семьи и близких</h3>
-              <p>Сдержанная, элегантная подача, продуманный тайминг и спокойный ритм вечера без перегруза.</p>
-              <div class="portfolio-meta"><span class="chip">Семейный формат</span><span class="chip">Под ключ</span></div>
-            </div>
-          </article>
-          <article class="portfolio-item reveal" style="transition-delay:.1s;">
-            <div class="portfolio-photo" data-label="Корпоратив"></div>
-            <div>
-              <h3>Корпоратив с понятной логистикой</h3>
-              <p>Программа, площадка и сервис собраны так, чтобы событие выглядело достойно и работало без провисаний.</p>
-              <div class="portfolio-meta"><span class="chip">Командное событие</span><span class="chip">Тайминг</span></div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
+    <!-- процесс -->
     <section class="section" id="process">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Как мы работаем</span>
-          <h2>Понятный маршрут от заявки до дня мероприятия.</h2>
-          <p>Понятный процесс помогает сохранить спокойствие на каждом этапе: от первой заявки до дня события.</p>
-        </div>
-        <div class="card process-card reveal">
-          <div class="steps">
-            <div class="step"><div class="step-num">1</div><div><h3>Заявка и первичный контакт</h3><p>Вы рассказываете, какое событие планируете, в каком формате и на какую дату ориентируетесь.</p></div></div>
-            <div class="step"><div class="step-num">2</div><div><h3>Обсуждение идеи</h3><p>Уточняем масштаб, стиль, ожидания, количество гостей и то, что действительно важно именно вам.</p></div></div>
-            <div class="step"><div class="step-num">3</div><div><h3>Концепция и подбор решений</h3><p>Собираем формат события, предлагаем варианты площадки, команды, наполнения и логики дня.</p></div></div>
-            <div class="step"><div class="step-num">4</div><div><h3>Подготовка</h3><p>Фиксируем ключевые решения, держим под контролем коммуникацию и снимаем с вас лишнюю нагрузку.</p></div></div>
-            <div class="step"><div class="step-num">5</div><div><h3>Координация в день мероприятия</h3><p>Следим за таймингом, подрядчиками и деталями, чтобы вы могли быть внутри события, а не управлять им.</p></div></div>
-          </div>
+        <div class="section-head reveal"><span class="eyebrow">Как работаем</span><h2>Прозрачный маршрут от заявки до праздника</h2></div>
+        <div class="grid-2">
+          <div class="card"><div style="font-size:2rem;">1</div><h3>Заявка и знакомство</h3><p>Вы оставляете контакты, мы созваниваемся и обсуждаем идею, дату, бюджет.</p></div>
+          <div class="card"><div style="font-size:2rem;">2</div><h3>Концепция и смета</h3><p>Готовим визуальный moodboard, подбираем площадку, подрядчиков, прозрачную смету.</p></div>
+          <div class="card"><div style="font-size:2rem;">3</div><h3>Подготовка</h3><p>Вся коммуникация с подрядчиками, тайминг, чек-листы. Вы не думаете о деталях.</p></div>
+          <div class="card"><div style="font-size:2rem;">4</div><h3>День события</h3><p>Мы управляем всем процессом в реальном времени, вы наслаждаетесь праздником.</p></div>
         </div>
       </div>
     </section>
 
+    <!-- отзывы -->
     <section class="section">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Отзывы</span>
-          <h2>Что важно для клиентов после события.</h2>
-          <p>Для нас важны не громкие слова, а ощущение клиента: спокойно, собранно, красиво и без перегруза.</p>
-        </div>
-        <div class="testimonials">
-          <article class="card testimonial reveal">
-            <p>«Было ощущение, что всё идёт спокойно и естественно. Нам не пришлось держать в голове десятки задач — можно было просто прожить день.»</p>
-            <footer>После свадьбы важно одно — вы прожили день спокойно и с удовольствием</footer>
-          </article>
-          <article class="card testimonial reveal" style="transition-delay:.05s;">
-            <p>«Понравилось, что организация была понятной и без суеты. Все ключевые моменты были под контролем, но без лишнего давления.»</p>
-            <footer>После юбилея особенно ценится ощущение порядка, такта и комфорта для гостей</footer>
-          </article>
-          <article class="card testimonial reveal" style="transition-delay:.1s;">
-            <p>«Очень комфортная коммуникация и аккуратная подача. Всё выглядело достойно, а команда работала спокойно и собранно.»</p>
-            <footer>После private event остаётся главное — атмосфера, в которой всё выглядело естественно и достойно</footer>
-          </article>
+        <div class="section-head reveal"><span class="eyebrow">Отзывы</span><h2>Что говорят клиенты</h2></div>
+        <div class="grid-3">
+          <div class="card"><p>«Свадьба прошла идеально! Мы ничего не делали — только радовались. Организация на высшем уровне.»</p><footer>— Екатерина и Алексей</footer></div>
+          <div class="card"><p>«Юбилей отпраздновали с размахом и душой. Гости до сих пор вспоминают. Всё чётко, без суеты.»</p><footer>— Владимир Петрович</footer></div>
+          <div class="card"><p>«Корпоратив удался на 100%. Сотрудники в восторге. Спасибо за профессионализм!»</p><footer>— HR-директор, «ТехноПрогресс»</footer></div>
         </div>
       </div>
     </section>
 
+    <!-- FAQ -->
     <section class="section" id="faq">
       <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">FAQ</span>
-          <h2>Частые вопросы до первой заявки.</h2>
-        </div>
-        <div class="faq reveal">
-          <details open>
-            <summary>Какие мероприятия вы организуете?<span>+</span></summary>
-            <p>Свадьбы, юбилеи, корпоративы, семейные торжества и частные события. Формат можно адаптировать под задачу и настроение мероприятия.</p>
-          </details>
-          <details>
-            <summary>Работаете только в Тюмени?<span>+</span></summary>
-            <p>Основной фокус — Тюмень. Выездные проекты тоже возможны, если формат события и задачи это предполагают.</p>
-          </details>
-          <details>
-            <summary>Можно обратиться с небольшим мероприятием?<span>+</span></summary>
-            <p>Да. Важен не только масштаб, но и то, насколько вам нужна спокойная и понятная организация. Камерные события тоже могут быть собранными и красивыми.</p>
-          </details>
-          <details>
-            <summary>Можно заказать только координацию?<span>+</span></summary>
-            <p>Да, если у вас уже часть подготовки сделана. На старте лучше обсудить задачу, чтобы понять, какой формат помощи будет действительно полезен.</p>
-          </details>
-          <details>
-            <summary>Как формируется стоимость?<span>+</span></summary>
-            <p>Стоимость зависит от формата события, количества гостей, площадки, состава команды и наполнения. После заявки можно дать ориентир по формату и бюджету.</p>
-          </details>
-          <details>
-            <summary>За сколько лучше обращаться?<span>+</span></summary>
-            <p>Чем раньше, тем спокойнее можно пройти подготовку. Но если сроки сжатые, всё равно стоит написать — иногда можно собрать хороший формат и в более короткий срок.</p>
-          </details>
-          <details>
-            <summary>Можно ли обратиться, если бюджет ограничен?<span>+</span></summary>
-            <p>Да. На старте важнее честно понять формат события и приоритеты. Даже в ограниченном бюджете можно собрать достойное и аккуратное решение без лишних трат.</p>
-          </details>
-          <details>
-            <summary>Что делать, если пока нет чёткого понимания концепции?<span>+</span></summary>
-            <p>Это нормально. На первой коммуникации как раз и становится понятно, какой формат, масштаб и стиль события вам подойдут лучше всего.</p>
-          </details>
+        <div class="section-head reveal"><span class="eyebrow">FAQ</span><h2>Частые вопросы</h2></div>
+        <div class="faq">
+          <details><summary>Какие мероприятия вы организуете?</summary><p>Свадьбы, юбилеи, корпоративы, частные вечера и любые форматы под ключ.</p></details>
+          <details><summary>Работаете только в Тюмени?</summary><p>Основной регион — Тюмень и Тюменская область, возможен выезд.</p></details>
+          <details><summary>Можно заказать только координацию в день?</summary><p>Да, у нас есть пакет «координация на день».</p></details>
+          <details><summary>Как формируется стоимость?</summary><p>Зависит от формата, количества гостей и наполнения. После заявки подготовим предложение.</p></details>
+          <details><summary>Как быстро вы отвечаете?</summary><p>Обычно в течение 1–2 часов в рабочее время.</p></details>
         </div>
       </div>
     </section>
 
+    <!-- форма и контакты -->
     <section class="section" id="estimate">
-      <div class="container cta-wrap reveal">
-        <div>
-          <span class="eyebrow">Рассчитать стоимость</span>
-          <h2>Оставьте контакт — дальше спокойно уточним детали и подготовим ориентир по формату и стоимости.</h2>
-          <p>Первый шаг — быстрый контакт. После заявки мы связываемся с вами, задаём несколько уточняющих вопросов и предлагаем понятный следующий шаг. В рабочее время стараемся отвечать максимально быстро.</p>
-          <div class="trust-inline reveal">
-            <span>Ответим в ближайшее время</span>
-            <span>Можно начать с короткого обсуждения идеи</span>
-            <span>Без навязчивых продаж и лишнего давления</span>
+      <div class="container">
+        <div class="grid-2">
+          <div class="reveal">
+            <span class="eyebrow">Рассчитать стоимость</span>
+            <h2>Оставьте заявку — мы обсудим ваше событие без лишних продаж</h2>
+            <p>Заполните форму, и мы свяжемся, чтобы уточнить детали и подготовить персональное предложение.</p>
+            <div style="margin-top:1.5rem;">
+              <div class="card" style="display:flex; gap:1rem;"><div>📞</div><div><strong>Телефон</strong><br><a href="tel:89292692517">8 929 269-25-17</a></div></div>
+              <div class="card" style="display:flex; gap:1rem; margin-top:1rem;"><div>✈️</div><div><strong>Telegram</strong><br><a href="https://t.me/KetrinPeil?text=Здравствуйте! Хочу обсудить организацию события." target="_blank">@KetrinPeil</a></div></div>
+            </div>
           </div>
-          <div class="contact-list">
-            <div class="contact-card"><div class="contact-icon">☎</div><div><strong>Телефон</strong><p>8 929 269-25-17</p></div></div>
-            <div class="contact-card"><div class="contact-icon">✈</div><div><strong>Telegram</strong><p>@KetrinPeil</p></div></div>
-            <div class="contact-card"><div class="contact-icon">⌂</div><div><strong>Город работы</strong><p>Тюмень</p></div></div>
-          </div>
-        </div>
-        <div class="card">
-          <form id="contact-form" action="https://formspree.io/f/mnjlwdly" method="POST">
-            <input type="hidden" name="_subject" value="Новая заявка с сайта Атмосфера">
-            <div class="form-step-indicator">
-              <span class="is-active">1. Контакт</span>
-              <span>2. Детали события</span>
-            </div>
-            <div class="form-step is-active" data-step="1">
+          <div class="form-card reveal">
+            <form id="contact-form" action="https://formspree.io/f/mnjlwdly" method="POST">
+              <input type="hidden" name="_subject" value="Новая заявка с сайта Атмосфера">
               <div class="form-grid">
-                <label>Имя
-                  <input type="text" name="name" placeholder="Как к вам обращаться" required>
-                </label>
-                <label>Телефон
-                  <input type="text" name="phone" placeholder="8 9XX XXX-XX-XX" required>
-                </label>
+                <div><label>Имя <input type="text" name="name" id="name" placeholder="Как к вам обращаться?" required></label><span class="error-msg" data-for="name"></span></div>
+                <div><label>Телефон <input type="tel" name="phone" id="phone" placeholder="8 9XX XXX-XX-XX" required></label><span class="error-msg" data-for="phone"></span></div>
+                <div><label>Тип мероприятия <select name="type"><option>Свадьба</option><option>Юбилей</option><option>Корпоратив</option><option>Private event</option></select></label></div>
+                <div><label>Дата <input type="text" name="date" placeholder="сентябрь 2025"></label></div>
+                <div><label>Количество гостей <input type="text" name="guests" placeholder="~50"></label></div>
+                <div><label>Бюджет <input type="text" name="budget" placeholder="от и до"></label></div>
               </div>
-              <div class="form-grid">
-                <label>Telegram или удобная связь
-                  <input type="text" name="contact" placeholder="@username или WhatsApp">
-                </label>
-                <label>Тип мероприятия
-                  <select name="type">
-                    <option>Свадьба под ключ</option>
-                    <option>Юбилей</option>
-                    <option>Корпоратив</option>
-                    <option>Частное торжество</option>
-                    <option>Другое</option>
-                  </select>
-                </label>
+              <label>Пожелания <textarea name="comment" rows="3" placeholder="Расскажите о вашей идее"></textarea></label>
+              <div class="checkbox">
+                <input type="checkbox" id="consent" name="consent" required>
+                <label for="consent" style="margin:0;">Я согласен на обработку персональных данных в соответствии с <a href="#" id="privacyLink" style="text-decoration:underline;">политикой конфиденциальности</a></label>
               </div>
-              <button class="btn btn-secondary step-next" type="button">Продолжить</button>
-            </div>
-            <div class="form-step" data-step="2">
-              <div class="form-grid">
-                <label>Дата мероприятия
-                  <input type="text" name="date" placeholder="Например: август 2026">
-                </label>
-                <label>Количество гостей
-                  <input type="text" name="guests" placeholder="Например: 40–60">
-                </label>
-              </div>
-              <label>Город
-                <input type="text" name="city" placeholder="Тюмень" value="Тюмень">
-              </label>
-              <label>Пожелания
-                <textarea name="comment" placeholder="Коротко расскажите о формате, настроении и задачах события"></textarea>
-              </label>
-              <div class="form-actions-row">
-                <button class="btn btn-secondary step-back" type="button">Назад</button>
-                <button class="btn btn-primary" type="submit">Отправить заявку</button>
-              </div>
-            </div>
-            <p id="success-message" style="display:none; color: var(--color-text); margin: 0;"></p>
-          </form>
-                <div class="after-request reveal">
-          <h3>Что происходит после заявки</h3>
-          <div class="grid grid-3">
-            <article class="card">
-              <span class="metric">01</span>
-              <p>Сначала коротко уточняем формат события, дату, город и ориентир по гостям.</p>
-            </article>
-            <article class="card">
-              <span class="metric">02</span>
-              <p>Понимаем, нужен ли вам полный цикл организации, координация или помощь по отдельным задачам.</p>
-            </article>
-            <article class="card">
-              <span class="metric">03</span>
-              <p>После этого предлагаем понятный следующий шаг: созвон, встречу или первичный ориентир по формату и бюджету.</p>
-            </article>
+              <button class="btn btn-primary" type="submit" id="submitBtn" style="width:100%">Отправить заявку</button>
+              <p id="form-status" style="margin-top:1rem; display:none;"></p>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="contacts">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Контакты</span>
-          <h2>Можно написать сразу — без длинных вводных.</h2>
-          <p>Если у вас уже есть дата, формат и ориентир по гостям, этого достаточно, чтобы обсудить задачу и следующий шаг.</p>
-        </div>
-        <div class="grid-3">
-          <a class="card reveal" href="tel:89292692517">
-            <h3>Позвонить</h3>
-            <p>8 929 269-25-17</p>
-          </a>
-          <a class="card reveal" style="transition-delay:.05s;" href="https://t.me/KetrinPeil" target="_blank" rel="noopener noreferrer">
-            <h3>Написать в Telegram</h3>
-            <p>@KetrinPeil</p>
-          </a>
-          <div class="card reveal" style="transition-delay:.1s;">
-            <h3>Город</h3>
-            <p>Тюмень и выездные проекты по согласованию.</p>
-          </div>
-        </div>
+    <!-- модальное окно политики -->
+    <div id="privacyModal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Закрыть">&times;</button>
+        <h3>Политика конфиденциальности</h3>
+        <p>Мы уважаем ваше право на конфиденциальность. Собранные персональные данные (имя, телефон) используются исключительно для связи с вами по поводу организации события. Мы не передаём данные третьим лицам и не осуществляем спам-рассылок. Вы можете отказаться от общения в любой момент, сообщив нам об этом.</p>
+        <p>Отправляя форму, вы даёте согласие на обработку указанных данных в целях, описанных выше.</p>
       </div>
-    </section>
-    <a class="mobile-cta" href="#estimate">Оставить заявку</a>
-</main>
+    </div>
 
-  <section class="section" id="privacy">
-      <div class="container">
-        <div class="section-head reveal">
-          <span class="eyebrow">Конфиденциальность</span>
-          <h2>Как мы используем данные из формы</h2>
-          <p>Контактные данные из формы нужны только для связи по вашему запросу: чтобы обсудить формат события, ответить на вопросы и предложить следующий шаг. Мы не используем их для навязчивых рассылок и не передаём третьим лицам без необходимости, связанной с организацией события.</p>
-        </div>
-      </div>
+    <section class="section" id="privacy" style="padding-top:0;">
+      <div class="container"><div class="section-head reveal"><span class="eyebrow">Конфиденциальность</span><h2>Как мы используем данные</h2><p>Контактные данные нужны только для связи по вашему запросу. Мы не передаём их третьим лицам.</p></div></div>
     </section>
+  </main>
 
   <footer class="footer">
     <div class="container footer-row">
-      <div>© Атмосфера · премиальная организация свадеб, юбилеев и частных событий</div>
-      <div><a href="#top">Наверх</a> · <a href="#estimate">Обсудить событие</a> · <a href="#privacy">Конфиденциальность</a></div>
+      <div>© Атмосфера · премиальная организация событий</div>
+      <div><a href="#top">Наверх</a> · <a href="#estimate">Обсудить событие</a> · <a href="#" id="privacyLinkFooter">Конфиденциальность</a></div>
     </div>
   </footer>
-  <div class="sticky-cta">
-    <span>Поговорим о вашем событии спокойно и по делу</span>
-    <a class="btn btn-primary" href="#estimate">Оставить заявку</a>
-  </div>
-
+  <div class="sticky-cta"><span>Поговорим о вашем событии спокойно и по делу</span><a class="btn btn-primary" href="#estimate">Оставить заявку</a></div>
+  <button class="scroll-top" id="scrollTopBtn" aria-label="Наверх">↑</button>
 
   <script>
-    (function(){
+    (function() {
+      // theme
       const root = document.documentElement;
       const toggle = document.querySelector('[data-theme-toggle]');
-      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      let theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       root.setAttribute('data-theme', theme);
-      const renderIcon = () => {
-        toggle.innerHTML = theme === 'dark'
-          ? '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"/></svg>'
-          : '<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-      };
-      renderIcon();
-      toggle.addEventListener('click', () => {
+      const updateIcon = () => { toggle.innerHTML = theme === 'dark' ? '☀️' : '🌙'; };
+      updateIcon();
+      toggle?.addEventListener('click', () => {
         theme = theme === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', theme);
-        renderIcon();
+        localStorage.setItem('theme', theme);
+        updateIcon();
       });
 
+      // header scroll
       const header = document.querySelector('.header');
-      window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 12);
-      });
+      window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10));
 
+      // reveal
       const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible');
-        });
-      }, { threshold: 0.12 });
+        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+      }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+      // mobile menu + body scroll lock
       const burger = document.querySelector('[data-burger]');
       const panel = document.querySelector('[data-mobile-panel]');
       burger?.addEventListener('click', () => {
-        const open = panel.classList.toggle('open');
-        burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        panel.classList.toggle('open');
+        document.body.classList.toggle('menu-open', panel.classList.contains('open'));
       });
       panel?.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           panel.classList.remove('open');
-          burger.setAttribute('aria-expanded', 'false');
+          document.body.classList.remove('menu-open');
         });
       });
-    })();
 
-    const stepIndicators = Array.from(document.querySelectorAll('.form-step-indicator span'));
-    const stepBlocks = Array.from(document.querySelectorAll('.form-step'));
-    const nextBtn = document.querySelector('.step-next');
-    const backBtn = document.querySelector('.step-back');
-    const activateStep = (step) => {
-      stepBlocks.forEach((block, index) => block.classList.toggle('is-active', index + 1 === step));
-      stepIndicators.forEach((item, index) => item.classList.toggle('is-active', index + 1 === step));
-    };
-    nextBtn?.addEventListener('click', () => activateStep(2));
-    backBtn?.addEventListener('click', () => activateStep(1));
-
-    const form = document.getElementById('contact-form');
-    if (form) {
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const message = document.getElementById('success-message');
-        message.style.display = 'none';
-        const data = new FormData(form);
-        try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          });
-          if (response.ok) {
-            message.textContent = 'Спасибо! Получили вашу заявку. Скоро свяжемся, чтобы обсудить формат события и следующий шаг.';
-            message.style.display = 'block';
-            form.reset();
-          } else {
-            message.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.';
-            message.style.display = 'block';
+      // плавный скролл с учетом высоты хедера
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#' || targetId === '') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            const headerOffset = document.querySelector('.header')?.offsetHeight || 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.scrollY - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
           }
-        } catch (error) {
-          message.textContent = 'Пока не получилось отправить заявку через форму. Напишите нам в Telegram — ответим быстрее.';
-          message.style.display = 'block';
+        });
+      });
+
+      // кнопка наверх
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) scrollBtn.classList.add('visible');
+        else scrollBtn.classList.remove('visible');
+      });
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // валидация формы
+      const form = document.getElementById('contact-form');
+      const nameInput = document.getElementById('name');
+      const phoneInput = document.getElementById('phone');
+      const consentCheck = document.getElementById('consent');
+      const submitBtn = document.getElementById('submitBtn');
+      const statusDiv = document.getElementById('form-status');
+
+      function validateName() { 
+        const val = nameInput.value.trim();
+        if (val.length < 2) return 'Введите имя (минимум 2 буквы)';
+        return '';
+      }
+      function validatePhone() {
+        const val = phoneInput.value.trim().replace(/[^\d+]/g, '');
+        if (val.length < 10) return 'Введите корректный номер телефона';
+        return '';
+      }
+      function showFieldError(field, msg) {
+        const errorSpan = document.querySelector(`.error-msg[data-for="${field.id}"]`);
+        if (errorSpan) {
+          errorSpan.textContent = msg;
+          field.classList.toggle('field-error', !!msg);
+        }
+      }
+      function validateForm() {
+        let isValid = true;
+        const nameErr = validateName();
+        const phoneErr = validatePhone();
+        showFieldError(nameInput, nameErr);
+        showFieldError(phoneInput, phoneErr);
+        if (nameErr || phoneErr) isValid = false;
+        if (!consentCheck.checked) isValid = false;
+        return isValid;
+      }
+
+      nameInput.addEventListener('input', () => showFieldError(nameInput, validateName()));
+      phoneInput.addEventListener('input', () => showFieldError(phoneInput, validatePhone()));
+      consentCheck.addEventListener('change', () => {});
+
+      // отправка со спиннером
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        if (!validateForm()) {
+          statusDiv.textContent = 'Пожалуйста, заполните все обязательные поля и подтвердите согласие.';
+          statusDiv.style.display = 'block';
+          return;
+        }
+        statusDiv.style.display = 'block';
+        statusDiv.textContent = '';
+        submitBtn.disabled = true;
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span class="spinner"></span> Отправка...';
+        const formData = new FormData(form);
+        try {
+          const response = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+          if (response.ok) {
+            statusDiv.textContent = '✅ Спасибо! Мы свяжемся с вами в ближайшее время.';
+            form.reset();
+            showFieldError(nameInput, '');
+            showFieldError(phoneInput, '');
+          } else {
+            statusDiv.textContent = '❌ Ошибка. Пожалуйста, напишите нам в Telegram или позвоните.';
+          }
+        } catch {
+          statusDiv.textContent = '❌ Не удалось отправить форму. Свяжитесь через Telegram или телефон.';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
         }
       });
-    }
+
+      // модалка политики
+      const modal = document.getElementById('privacyModal');
+      const openModalLinks = document.querySelectorAll('#privacyLink, #privacyLinkFooter');
+      const closeModal = document.querySelector('.modal-close');
+      function openModal() { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      function closeModalFunc() { modal.classList.remove('active'); document.body.style.overflow = ''; }
+      openModalLinks.forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
+      closeModal.addEventListener('click', closeModalFunc);
+      modal.addEventListener('click', (e) => { if(e.target === modal) closeModalFunc(); });
+    })();
   </script>
 </body>
 </html>
